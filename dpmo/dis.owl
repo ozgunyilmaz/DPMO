@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:dis="http://sorubank.ege.edu.tr/~oyilmaz/dpmo/dis.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://sorubank.ege.edu.tr/~oyilmaz/dpmo/dis.owl">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.0.2
+2014-03-20</owl:versionInfo>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Author(s):
+Özgün Yilmaz, Department of Computer Engineering, Ege University.
+</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Upper ontology&#xD; for dis
+</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Anamnesis">
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;940000&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+    <rdfs:label xml:lang="tr">Anamnez</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Presciption">
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;260885003&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+    <rdfs:label xml:lang="tr">Reçete</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PersonalInfo">
+    <rdfs:label xml:lang="tr">KişiselBilgi</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Examination">
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;302199004&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+    <rdfs:label xml:lang="tr">Muayene</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PatientModel">
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;286754002&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+    <rdfs:label xml:lang="tr">HastaModeli</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Complication">
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;116223007&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+    <rdfs:label xml:lang="tr">Komplikasyon</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BodySystem">
+    <rdfs:label xml:lang="tr">VücutSistemi</rdfs:label>
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;278195005&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+  </owl:Class>
+  <owl:Class rdf:ID="Patient">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >@provides_figure</rdfs:comment>
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;116154003&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+    <rdfs:label xml:lang="tr">Hasta</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="HasPersonalInfo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="X-RayExamination">
+    <rdfs:label xml:lang="tr">RadyolojikMuayene</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Diagnosis">
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;439401001&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+    <rdfs:label xml:lang="tr">Diyagnoz</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Treatment">
+    <rdfs:label xml:lang="tr">Tedavi</rdfs:label>
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;7922000&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+  </owl:Class>
+  <owl:Class rdf:ID="Consultation">
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;11429006&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+    <rdfs:label xml:lang="tr">Konsültasyon</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Symptom">
+    <rdfs:label xml:lang="tr">Semptom</rdfs:label>
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;SNOMED&gt;267022002&lt;/SNOMED&gt;</rdfs:isDefinedBy>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="HasPrescription">
+    <rdfs:label xml:lang="tr">Reçeteler</rdfs:label>
+    <rdfs:range rdf:resource="#Presciption"/>
+    <rdfs:domain rdf:resource="#Examination"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasBodySystem">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="#BodySystem"/>
+    <rdfs:label xml:lang="tr">Vücut sistemi</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasTreatmentOption">
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >@provides_assistance</rdfs:comment>
+    <rdfs:range rdf:resource="#Treatment"/>
+    <rdfs:label xml:lang="tr">Tedavi önerileri</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasAnamnesis">
+    <rdfs:range rdf:resource="#Anamnesis"/>
+    <rdfs:label xml:lang="tr">Anamnez</rdfs:label>
+    <rdfs:domain rdf:resource="#Examination"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasComplication">
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:range rdf:resource="#Complication"/>
+    <rdfs:label xml:lang="tr">Komplikasyonlar</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasDiagnosisOption">
+    <rdfs:range rdf:resource="#Diagnosis"/>
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >@provides_assistance</rdfs:comment>
+    <rdfs:label xml:lang="tr">Tanı önerileri</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasSymptom">
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:range rdf:resource="#Symptom"/>
+    <rdfs:label xml:lang="tr">Semptomlar</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasConsultation">
+    <rdfs:label xml:lang="tr">Konsültasyonlar</rdfs:label>
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:range rdf:resource="#Consultation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasPatientModel">
+    <rdfs:range rdf:resource="#PatientModel"/>
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:label xml:lang="tr">Hasta modeli</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasExamination">
+    <rdfs:range rdf:resource="#Examination"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Patient"/>
+          <owl:Class rdf:about="#Complication"/>
+          <owl:Class rdf:about="#Consultation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="tr">Muayeneler</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasDiagnosis">
+    <rdfs:range rdf:resource="#Diagnosis"/>
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:label xml:lang="tr">Tanılar</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasX-RayExamination">
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:range rdf:resource="#X-RayExamination"/>
+    <rdfs:label xml:lang="tr">Radyoloji muayenesi</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HasTreatment">
+    <rdfs:label xml:lang="tr">Tedaviler</rdfs:label>
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:range rdf:resource="#Treatment"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="PrescriptionDescription">
+    <rdfs:label xml:lang="tr">Reçete açıklaması</rdfs:label>
+    <rdfs:domain rdf:resource="#Presciption"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="TreatmentDescription">
+    <rdfs:domain rdf:resource="#Treatment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Tedavi açıklaması</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Address">
+    <rdfs:domain rdf:resource="#PersonalInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Adresler</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="DiagnosisDescription">
+    <rdfs:label xml:lang="tr">Diyagnoz açıklaması</rdfs:label>
+    <rdfs:domain rdf:resource="#Diagnosis"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="PMDescription">
+    <rdfs:domain rdf:resource="#PatientModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Hasta modeli açıklaması</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="ExaminationDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Examination"/>
+    <rdfs:label xml:lang="tr">Muayene açıklaması</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="PhoneNumber">
+    <rdfs:domain rdf:resource="#PersonalInfo"/>
+    <rdfs:label xml:lang="tr">Telefon numarası</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="SymptomDescription">
+    <rdfs:domain rdf:resource="#Symptom"/>
+    <rdfs:label xml:lang="tr">Semptom açıklaması</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Email">
+    <rdfs:domain rdf:resource="#PersonalInfo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Email adresi</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="X-RayExaminationDescription">
+    <rdfs:label xml:lang="tr">Radyolojik muayene açıklaması</rdfs:label>
+    <rdfs:domain rdf:resource="#X-RayExamination"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="X-RayFilePath">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#X-RayExamination"/>
+    <rdfs:label xml:lang="tr">Radyolojik imaj adresi</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="ConsultationDescription">
+    <rdfs:domain rdf:resource="#Consultation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Konsültasyon açıklaması</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="ComplicationDescription">
+    <rdfs:domain rdf:resource="#Complication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Komplikasyon açıklaması</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="ComplicationDate">
+    <rdfs:domain rdf:resource="#Complication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="tr">Komplikasyon tarihi</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#HasPersonalInfo">
+    <rdfs:range rdf:resource="#PersonalInfo"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:label xml:lang="tr">Kişisel bilgiler</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Lastname">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#PersonalInfo"/>
+    <rdfs:label xml:lang="tr">Soyad</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="MedicalHistory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Medikal geçmişi</rdfs:label>
+    <rdfs:domain rdf:resource="#Anamnesis"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="SymptomDate">
+    <rdfs:domain rdf:resource="#Symptom"/>
+    <rdfs:label xml:lang="tr">Semptom tarihi</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="TreatmentDate">
+    <rdfs:label xml:lang="tr">Tedavi tarihi</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Treatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="AnamnesisDescription">
+    <rdfs:label xml:lang="tr">Anamnez açıklaması</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Anamnesis"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Firstname">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Ad</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#PersonalInfo"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="PrescriptionDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Presciption"/>
+    <rdfs:label xml:lang="tr">Reçete tarihi</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ExaminationDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Muayene tarihi</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Examination"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="SocialSecurityNumber">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="tr">Kimlik</rdfs:label>
+    <rdfs:domain rdf:resource="#PersonalInfo"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="AnamnesisDate">
+    <rdfs:label xml:lang="tr">Anamnez tarihi</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Anamnesis"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ConsultationDate">
+    <rdfs:domain rdf:resource="#Consultation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="tr">Konsültasyon tarihi</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Gender">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#PersonalInfo"/>
+    <rdfs:label xml:lang="tr">Cinsiyet</rdfs:label>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Female</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Male</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="DiagnosisDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="tr">Diyagnoz tarihi</rdfs:label>
+    <rdfs:domain rdf:resource="#Diagnosis"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Birthdate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PersonalInfo"/>
+    <rdfs:label xml:lang="tr">Doğum tarihi</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="X-RayExaminationDate">
+    <rdfs:label xml:lang="tr">Radyolojik muayene tarihi</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#X-RayExamination"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.8, Build 629)  http://protege.stanford.edu -->
